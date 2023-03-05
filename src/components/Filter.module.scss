@@ -1,0 +1,33 @@
+@use "../sass/utilities/variables" as *;
+
+.filter_container {
+  position: relative;
+}
+
+.filter_btn {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background-color: $dark-blue;
+  padding: 1.5rem 2rem;
+  border-radius: 5px;
+  border: 0;
+  color: $white;
+}
+
+.filter_list {
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  background-color: $dark-blue;
+  border-radius: 5px;
+  padding-block: 1rem;
+
+  li {
+    padding: 1rem 2rem;
+
+    &:active {
+      background-color: $very-dark-blue;
+    }
+  }
+}

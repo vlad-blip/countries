@@ -1,0 +1,28 @@
+@use "../sass/utilities/variables" as *;
+.search_container {
+  background-color: $dark-blue;
+  display: flex;
+  align-items: center;
+  padding: 1.5rem clamp(1rem, 7vw, 4rem);
+  border-radius: 5px;
+
+  i {
+    display: block;
+    font-size: 1.2rem;
+  }
+
+  input {
+    border: 0;
+    background-color: inherit;
+    padding-left: 2rem;
+    color: $white;
+
+    &:focus {
+      outline: none;
+    }
+    &::placeholder {
+      color: $white;
+      opacity: 0.8;
+    }
+  }
+}

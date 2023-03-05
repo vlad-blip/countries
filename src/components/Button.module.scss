@@ -1,0 +1,15 @@
+@use "../sass/utilities/variables" as *;
+
+.button {
+  font-family: "Nunito Sans", sans-serif;
+  background-color: $dark-blue;
+  color: $white;
+  border: 0;
+  padding: 0.7rem 3.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+
+  i {
+    margin-right: 1rem;
+  }
+}

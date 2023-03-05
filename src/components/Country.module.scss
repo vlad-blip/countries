@@ -1,0 +1,43 @@
+@use "../sass/utilities/variables" as *;
+
+.country {
+  display: grid;
+  grid-auto-rows: 1fr;
+  background-color: $dark-blue;
+  border-radius: 5px;
+  overflow: hidden;
+  min-height: 100%;
+
+  &_flag {
+    max-height: 17rem;
+    min-width: 100%;
+  }
+  &_name {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+  &_description {
+    padding-inline: 2rem;
+    padding-top: 2rem;
+  }
+
+  &_sub_description {
+    padding-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    font-size: 1.4rem;
+    color: $white;
+  }
+}
+
+.highlight {
+  font-weight: 600;
+}
+
+.deemphasize {
+  color: $white;
+  opacity: 0.8;
+}

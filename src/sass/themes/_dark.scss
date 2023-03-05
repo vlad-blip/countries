@@ -1,0 +1,6 @@
+@use "../utilities/variables" as *;
+
+[data-theme="dark"] {
+  background-color: $very-dark-blue;
+  color: $white;
+}
