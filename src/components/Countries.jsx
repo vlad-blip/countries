@@ -13,7 +13,7 @@ const Countries = () => {
     item.name.common.includes(countryName)
   );
 
-  if (filteredCountries.length === 0) {
+  if (filteredCountries.length === 0 && countryName !== "") {
     return (
       <Error
         title="Error"

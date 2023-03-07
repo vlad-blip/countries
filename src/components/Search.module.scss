@@ -5,7 +5,7 @@
   background-color: $dark-blue;
   display: flex;
   align-items: center;
-  padding: 1.5rem clamp(1rem, 7vw, 4rem);
+  padding: 1.7rem clamp(1rem, 7vw, 4rem);
   border-radius: 5px;
 
   @include box-shadow($dark-mode-shadow);
