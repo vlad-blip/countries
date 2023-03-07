@@ -1,10 +1,20 @@
 @use "../sass/utilities/variables" as *;
+@use "../sass/utilities/mixins.scss" as *;
+
 .search_container {
   background-color: $dark-blue;
   display: flex;
   align-items: center;
   padding: 1.5rem clamp(1rem, 7vw, 4rem);
   border-radius: 5px;
+
+  @include box-shadow($dark-mode-shadow);
+
+  [data-theme="light"] & {
+    @include box-shadow($light-mode-shadow);
+
+    background-color: $white;
+  }
 
   i {
     display: block;
@@ -17,12 +27,20 @@
     padding-left: 2rem;
     color: $white;
 
+    [data-theme="light"] & {
+      color: $very-dark-blue;
+    }
+
     &:focus {
       outline: none;
     }
     &::placeholder {
       color: $white;
       opacity: 0.8;
+
+      [data-theme="light"] & {
+        color: $very-dark-blue;
+      }
     }
   }
 }

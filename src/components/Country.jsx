@@ -1,11 +1,11 @@
 import styles from "./Country.module.scss";
 import { useNavigate } from "react-router-dom";
 
-const Country = ({ name, flags, population, region, capital }) => {
+const Country = ({ name, countryCode, flags, population, region, capital }) => {
   const navigate = useNavigate();
 
   const divClickHandler = () => {
-    navigate(`/country/${name}`);
+    navigate(`/country/${countryCode}`);
   };
 
   return (

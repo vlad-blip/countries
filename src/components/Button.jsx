@@ -3,7 +3,7 @@ import styles from "./Button.module.scss";
 const Button = ({ type, onClick, children }) => {
   return type === "back" ? (
     <button className={styles.button} onClick={() => onClick()}>
-      <i class="fa-solid fa-arrow-left"></i>
+      <i className="fa-solid fa-arrow-left"></i>
       {children}
     </button>
   ) : (

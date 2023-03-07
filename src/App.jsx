@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import store from "./store";
 import Container from "./Layout/Container";
-import { Provider, useDispatch } from "react-redux";
+import { Provider } from "react-redux";
 
 import MainPage from "./pages/MainPage";
 import CountryPage from "./pages/CountryPage";

@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { themeActions } from "../store/themeSlice";
 import styles from "./Header.module.scss";
 
+const fontClassNames = {
+  dark: "",
+};
 const Header = () => {
   const dispatch = useDispatch();
   const theme = useSelector((state) => state.theme);

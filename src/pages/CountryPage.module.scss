@@ -1,4 +1,5 @@
 @use "../sass/utilities/variables" as *;
+@use "../sass/utilities/mixins.scss" as *;
 
 .country {
   &_main {
@@ -6,7 +7,7 @@
   }
   &_section {
     display: grid;
-    gap: 10rem;
+    gap: clamp(1rem, 5vw, 10rem);
     justify-items: space-between;
     padding-top: 6rem;
   }
@@ -17,16 +18,24 @@
     }
   }
 
+  &_flag {
+    box-shadow: 0 0 10px $dark-mode-shadow;
+    min-height: 100%;
+
+    [data-theme="light"] & {
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+  }
+
   &_description {
     display: flex;
     gap: 4rem;
     flex-direction: column;
-  }
 
-  @media (min-width: 768px) {
-    &_description {
-      gap: 0;
-      justify-content: space-around;
+    color: $white;
+
+    [data-theme="light"] & {
+      color: $very-dark-blue;
     }
   }
 
@@ -83,6 +92,5 @@
 }
 
 .deemphasize {
-  color: $white;
   opacity: 0.8;
 }

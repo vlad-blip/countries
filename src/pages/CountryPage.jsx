@@ -1,4 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
+import Loading from "../components/Loading";
 import { useEffect, useState } from "react";
 
 import Button from "../components/Button";
@@ -7,29 +8,37 @@ import styles from "./CountryPage.module.scss";
 
 const CountryPage = () => {
   const [countryData, setCountryData] = useState(null);
+  const [loading, setIsLoading] = useState(true);
 
   const { countryId } = useParams();
   const navigate = useNavigate();
   const fetchCountry = async (country) => {
+    setIsLoading(true);
+
     const response = await fetch(
-      `https://restcountries.com/v2/name/${country}`
+      `https://restcountries.com/v2/alpha/${country}`
     );
     const data = await response.json();
 
-    setCountryData(data[0]);
+    setCountryData(data);
+    setIsLoading(false);
   };
   useEffect(() => {
     fetchCountry(countryId);
-  }, []);
+  }, [countryId]);
 
   return (
     <main className={`${styles.country_main} container`}>
       <Button type="back" onClick={() => navigate(-1)}>
         Back
       </Button>
-      {countryData ? (
+      {countryData && !loading ? (
         <section className={styles.country_section}>
-          <img src={countryData.flags.svg} alt={`${countryData.name} flag`} />
+          <img
+            className={styles.country_flag}
+            src={countryData.flags.svg}
+            alt={`${countryData.name} flag`}
+          />
           <div className={styles.country_description}>
             <h1 className={styles.country_name}>{countryData.name}</h1>
             <div className={styles.country_details}>
@@ -93,7 +102,11 @@ const CountryPage = () => {
                 <h2>Border countries: </h2>
                 <ul>
                   {countryData.borders.map((country) => (
-                    <Button>{country}</Button>
+                    <li key={country}>
+                      <Button onClick={() => navigate(`/country/${country}`)}>
+                        {country}
+                      </Button>
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -101,7 +114,7 @@ const CountryPage = () => {
           </div>
         </section>
       ) : (
-        <h1>Loading...</h1>
+        <Loading />
       )}
     </main>
   );

@@ -1,33 +1,73 @@
 @use "../sass/utilities/variables" as *;
+@use "../sass/utilities/mixins.scss" as *;
 
 .filter_container {
   position: relative;
+
+  @include box-shadow($dark-mode-shadow);
+
+  [data-theme="light"] & {
+    @include box-shadow($light-mode-shadow);
+  }
 }
 
 .filter_btn {
+  cursor: pointer;
   display: flex;
   align-items: center;
   gap: 2rem;
   background-color: $dark-blue;
-  padding: 1.5rem 2rem;
+  padding: 1.8rem 2rem;
   border-radius: 5px;
   border: 0;
   color: $white;
+
+  [data-theme="light"] & {
+    color: $very-dark-blue;
+    background-color: $white;
+  }
 }
 
 .filter_list {
   position: absolute;
-  top: 50px;
+  top: 55px;
   width: 100%;
   background-color: $dark-blue;
   border-radius: 5px;
   padding-block: 1rem;
+  z-index: 100;
+
+  @include box-shadow($dark-mode-shadow);
+
+  [data-theme="light"] & {
+    @include box-shadow($light-mode-shadow);
+
+    background-color: $white;
+  }
 
   li {
-    padding: 1rem 2rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 1.5rem 2rem;
 
     &:active {
       background-color: $very-dark-blue;
     }
+
+    [data-theme="light"] &:active {
+      background-color: $white;
+    }
+  }
+}
+
+.selected {
+  background-color: $very-dark-blue;
+  font-weight: 600;
+  text-decoration: underline;
+
+  [data-theme="light"] & {
+    background-color: $very-light-gray;
+    font-weight: 600;
+    text-decoration: underline;
   }
 }

@@ -1,11 +1,19 @@
 @use "../sass/utilities/variables" as *;
+@use "../sass/utilities/mixins.scss" as *;
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-block: 2rem;
-  box-shadow: 0px 1px 10px #0000006a;
+  background-color: $dark-blue;
+
+  @include box-shadow($dark-mode-shadow);
+
+  [data-theme="light"] & {
+    @include box-shadow($light-mode-shadow);
+    background-color: $white;
+  }
 }
 
 .link {
@@ -15,29 +23,27 @@
   color: inherit;
 }
 
-[data-theme="dark"] {
-  .header {
-    background-color: $dark-blue;
-  }
-  .theme_toggle {
-    color: $white;
-  }
-}
-
-[data-theme="light"] {
-  .header {
-    background-color: $white;
-  }
-  .theme_toggle {
-    color: $very-dark-blue;
-  }
-}
-
 .theme_toggle {
   background: 0;
   border: 0;
   font-size: 1.5rem;
+  font-weight: 600;
   color: $white;
   text-transform: capitalize;
   cursor: pointer;
+
+  [data-theme="light"] & {
+    color: $very-dark-blue;
+  }
+
+  &::before {
+    font-family: "Font Awesome 6 Free";
+    content: "\f185";
+
+    margin-right: 0.4em;
+
+    [data-theme="light"] & {
+      content: "\f186";
+    }
+  }
 }
